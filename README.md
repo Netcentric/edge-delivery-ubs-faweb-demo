@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# UBS FAWeb Demo
+Showcase for UBS FAWeb pages via EDS
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--edge-delivery-ubs-faweb-demo--netcentric.aem.page/
+- Live: https://main--edge-delivery-ubs-faweb-demo--netcentric.aem.live/
 
 ## Installation
 
