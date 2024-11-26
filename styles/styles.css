@@ -11,44 +11,130 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
-
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: Frutiger, frutiger-fallback, sans-serif;
+  --heading-font-family: Frutiger, frutiger-fallback, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
 
   /* nav height */
   --nav-height: 64px;
+
+  /* DN Theme variables */
+
+  /* Primary */
+  --col-white: #FFF;
+  --col-black: #000;
+
+  /* Brand Set */
+  --col-brand30: #E60000;
+  --col-brand40: #DA0000;
+  --col-brand50: #BD000C;
+
+  /* Neutral Set */
+  --col-neutral10: #F9F9F7;
+  --col-neutral20: #F4F3EE;
+  --col-neutral30: #CCCABC;
+  --col-neutral40: #B8B3A2;
+  --col-neutral50: #8E8D83;
+  --col-neutral60: #7A7870;
+  --col-neutral70: #5A5D5C;
+  --col-neutral80: #404040;
+  --col-neutral90: #1C1C1C;
+
+  /* Background Set */
+  --col-bg-01: #F9F9F7;
+  --col-bg-02: #F4F3EE;
+  --col-bg-03: #FBF9EE;
+
+  /* Highlight Colors Set */
+  --col-hgl-01: #CDD760;
+  --col-hgl-02: #F2C551;
+  --col-hgl-03: #F7F3DD;
+
+  /* Limited Colors Set */
+  --col-ltd-01: #BD000C;
+  --col-ltd-02: #AF8626;
+  --col-ltd-03: #0084B3;
+
+  /* Grey Light Set */
+  --col-167: #E6E6E6;
+  --col-176: #D7D7D7;
+  --col-177: #D3D3D3;
+  --col-178: #CCC;
+  --col-179: #FAFAFA;
+
+  /* Grey Mid Set */
+  --col-23: #1C1C1C;
+  --col-26: #444;
+  --col-28: #646464;
+  --col-29: #919191;
+  --col-49: #717171;
+  --col-50: #333;
+
+  /* Other colours */
+  --col-30: #BEBEBE;
+  --col-168: #B30000;
+  --col-169: #DA0000;
+  --col-84: #78CAE7;
+  --col-35old: #6a7d39;
+  --col-gray-switcherold: #EEE;
+
+  /* Breakpoints */
+  --b-print: 'only print';
+
+  --b-768: 768px;
+  --b-1280: 1280px;
+
+  /* max width breakpoint */
+  --b-767: 767px;
+  --b-1279: 1279px;
+
+  /* min-width aliases. */
+  --bp-s: --b-768;
+  --bp-l: --b-1280;
+
+  /* max-width aliases. */
+  --bp-s-max: --b-767;
+  --bp-l-max: --b-1279;
+
+  /* Spacing */
+  --grid-max-width: 1290px;
+
+  --grid-container-width-xs: 20px;
+  --grid-container-width-sm: 42px;
+  --grid-container-width-xl: 75px;
+
+  --spacing-component-main-xs: 20px;
+  --spacing-component-main-sm: 32px;
+  --spacing-component-main-xl: 40px;
+
+  /* Shadows */
+  --box-shadow: 0 1px 2px 0 rgba($col-29, 0.34), 0 0 13px 0 $col-167;
+
+  /* colors */
+  --background-color: var(--col-white);
+  --light-color: var(--col-neutral10);
+  --dark-color: var(--col-neutral90);
+  --text-color: var(--col-neutral90);
+  --link-color: var(--col-brand40);
+  --link-hover-color: var(--col-brand50);
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
+  font-family: frutiger-fallback;
   size-adjust: 99.529%;
   src: local('Arial');
 }
@@ -227,31 +313,37 @@ main img {
   width: 100%;
 }
 
-/* sections */
-main > .section {
-  margin: 40px 0;
-}
+main {
+  /* section */
+  & > .section {
+    margin: 40px 0;
 
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
-}
+    &:first-of-type {
+      margin-top: 0;
+    }
 
-main > .section:first-of-type {
-  margin-top: 0;
-}
+    & > div {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+    }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+    /* section metadata */
+    &.light,
+    &.highlight {
+      background-color: var(--light-color);
+      margin: 0;
+      padding: 40px 0;
+    }
   }
 }
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+@media (width >= 900px) {
+  main {
+    & > .section {
+      & > div {
+        padding: 0 32px;
+      }
+    }
+  }
 }
