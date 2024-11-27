@@ -12,8 +12,8 @@
 
 :root {
   /* fonts */
-  --body-font-family: Frutiger, frutiger-fallback, sans-serif;
-  --heading-font-family: Frutiger, frutiger-fallback, sans-serif;
+  --body-font-family: frutiger, frutiger-fallback, sans-serif;
+  --heading-font-family: frutiger, frutiger-fallback, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 16px;
@@ -32,7 +32,6 @@
   --nav-height: 64px;
 
   /* DN Theme variables */
-
   /* Primary */
   --col-white: #FFF;
   --col-black: #000;
@@ -93,7 +92,6 @@
 
   /* Breakpoints */
   --b-print: 'only print';
-
   --b-768: 768px;
   --b-1280: 1280px;
 
@@ -102,20 +100,18 @@
   --b-1279: 1279px;
 
   /* min-width aliases. */
-  --bp-s: --b-768;
-  --bp-l: --b-1280;
+  --bp-s: var(--b-768);
+  --bp-l: var(--b-1280);
 
   /* max-width aliases. */
-  --bp-s-max: --b-767;
-  --bp-l-max: --b-1279;
+  --bp-s-max: var(--b-767);
+  --bp-l-max: var(--b-1279);
 
   /* Spacing */
   --grid-max-width: 1290px;
-
   --grid-container-width-xs: 20px;
   --grid-container-width-sm: 42px;
   --grid-container-width-xl: 75px;
-
   --spacing-component-main-xs: 20px;
   --spacing-component-main-sm: 32px;
   --spacing-component-main-xl: 40px;
