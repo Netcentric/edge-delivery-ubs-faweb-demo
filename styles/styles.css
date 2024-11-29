@@ -72,8 +72,8 @@
 
   /* colors */
   --background-color: var(--col-white);
-  --light-color: var(--col-neutral10);
-  --dark-color: var(--col-neutral90);
+  --light-neutral-color: var(--col-neutral10);
+  --dark-neutral-color: var(--col-neutral90);
   --text-color: var(--col-neutral90);
   --link-color: var(--col-brand40);
   --link-hover-color: var(--col-brand50);
@@ -170,7 +170,7 @@ pre {
 pre {
   padding: 16px;
   border-radius: 8px;
-  background-color: var(--light-color);
+  background-color: var(--light-neutral-color);
   overflow-x: auto;
   white-space: pre;
 }
@@ -232,7 +232,7 @@ button:focus {
 
 button:disabled,
 button:disabled:hover {
-  background-color: var(--light-color);
+  background-color: var(--light-neutral-color);
   cursor: unset;
 }
 
@@ -278,7 +278,7 @@ main {
     /* section metadata */
     &.light,
     &.highlight {
-      background-color: var(--light-color);
+      background-color: var(--light-neutral-color);
       margin: 0;
       padding: 40px 0;
     }
