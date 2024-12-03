@@ -5,25 +5,25 @@
   flex-direction: column;
   gap: 24px;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     flex-direction: row;
   }
 
-  > div:not(.text-image__imageContainer) {
+  > div:not(.text-image__image-container) {
     order: 1;
     flex-grow: 1;
 
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
       order: initial;
       width: calc(100% - var(--image-width));
     }
   }
 }
 
-.text-image__imageContainer {
+.text-image__image-container {
   order: 0;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     order: initial;
     width: var(--image-width);
 
