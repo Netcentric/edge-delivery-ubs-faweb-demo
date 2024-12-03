@@ -12,21 +12,37 @@
 
 :root {
   /* fonts */
-  --body-font-family: frutiger, frutiger-fallback, sans-serif;
-  --heading-font-family: frutiger, frutiger-fallback, sans-serif;
-
-  /* body sizes */
-  --body-font-size-m: 16px;
-  --body-font-size-s: 14px;
-  --body-font-size-xs: 12px;
+  --body-font-family: frutiger, sans-serif;
+  --heading-font-family: frutiger, sans-serif;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --hl17-font-size: 48px;
+  --hl17-line-height: 1.2;
+  --hl18-font-size: 40px;
+  --hl18-line-height: 1.2;
+  --hl19-font-size: 32px;
+  --hl19-line-height: 1.5;
+  --hl20-font-size: 24px;
+  --hl20-line-height: 1.5;
+  --hl21-font-size: 20px;
+  --hl21-line-height: 1.5;
+  --hl22-font-size: 18px;
+  --hl22-line-height: 1.61;
+
+  /* text sizes */
+  --txt201-font-size: 17px;
+  --txt201-line-height: 1.6;
+  --txt204-font-size: 16px;
+  --txt204-line-height: 1.5;
+  --txt206-font-size: 12px;
+  --txt206-line-height: 1.66;
+  --txt150-font-size: 14px;
+  --txt150-line-height: 1.12;
+  --txt150-font-weight: bold;
+
+  /* navigation */
+  --txt154-font-size: 14px;
+  --txt154-line-height: 1.71;
 
   /* nav height */
   --nav-height: 64px;
@@ -68,7 +84,7 @@
   --spacing-component-main-xl: 40px;
 
   /* Shadows */
-  --box-shadow: 0 1px 2px 0 rgba($col-29, 0.34), 0 0 13px 0 $col-167;
+  --box-shadow: 0 1px 2px 0 rgba(var(--col-neutral50), 0.34), 0 0 13px 0 var(var(--col-neutral10));
 
   /* colors */
   --background-color: var(--col-white);
@@ -79,27 +95,34 @@
   --link-hover-color: var(--col-brand50);
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: frutiger-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 16px;
-    --body-font-size-s: 14px;
-    --body-font-size-xs: 12px;
-
     /* heading sizes */
-    --heading-font-size-xxl: 32px;
-    --heading-font-size-xl: 28px;
-    --heading-font-size-l: 24px;
-    --heading-font-size-m: 20px;
-    --heading-font-size-s: 18px;
-    --heading-font-size-xs: 16px;
+    --hl17-font-size: 32px;
+    --hl17-line-height: 1.25;
+    --hl18-font-size: 28px;
+    --hl18-line-height: 1.2;
+    --hl19-font-size: 24px;
+    --hl19-line-height: 1.5;
+    --hl20-font-size: 20px;
+    --hl20-line-height: 1.4;
+    --hl21-font-size: 18px;
+    --hl21-line-height: 1.5;
+    --hl22-font-size: 16px;
+    --hl22-line-height: 1.6;
+
+    /* text sizes */
+    --txt201-font-size: 16px;
+    --txt201-line-height: 1.6;
+    --txt204-font-size: 14px;
+    --txt204-line-height: 1.6;
+    --txt150-font-size: 14px;
+    --txt150-line-height: 1.14;
+    --txt150-font-weight: bold;
+
+    /* navigation */
+    --txt154-font-size: 16px;
+    --txt154-line-height: 1.75;
   }
 }
 
@@ -109,8 +132,8 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  font-size: var(--txt201-font-size);
+  line-height: var(--txt201-line-height);
 }
 
 body.appear {
@@ -145,12 +168,35 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--hl17-font-size);
+  line-height: var(--hl17-line-height);
+}
+
+h2 {
+  font-size: var(--hl18-font-size);
+  line-height: var(--hl18-line-height);
+}
+
+h3 {
+  font-size: var(--hl19-font-size);
+  line-height: var(--hl19-line-height);
+}
+
+h4 {
+  font-size: var(--hl20-font-size);
+  line-height: var(--hl20-line-height);
+}
+
+h5 {
+  font-size: var(--hl21-font-size);
+  line-height: var(--hl21-line-height);
+}
+
+h6 {
+  font-size: var(--hl22-font-size);
+  line-height: var(--hl22-line-height);
+}
 
 p,
 dl,
