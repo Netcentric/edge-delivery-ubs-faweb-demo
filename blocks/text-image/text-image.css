@@ -1,0 +1,38 @@
+.text-image__container {
+  --image-width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  > div:not(.text-image__imageContainer) {
+    order: 1;
+    flex-grow: 1;
+
+    @media (min-width: 768px) {
+      order: initial;
+      width: calc(100% - var(--image-width));
+    }
+  }
+}
+
+.text-image__imageContainer {
+  order: 0;
+
+  @media (min-width: 768px) {
+    order: initial;
+    width: var(--image-width);
+
+    .bigimage & {
+      --image-width: 70%;
+    }
+
+    .smallimage & {
+      --image-width: 30%;
+    }
+  }
+}
