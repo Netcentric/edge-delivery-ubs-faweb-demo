@@ -13,6 +13,7 @@
 :root {
   /* Breakpoints */
   --b-print: 'only print';
+
   /* 
   xs: 400px;
   sm: 768px;
@@ -20,7 +21,7 @@
   lg: 1280px;
   xl: 1440px;
   */
-
+  
   /* fonts */
   --body-font-family: frutiger, sans-serif;
   --heading-font-family: frutiger, sans-serif;
