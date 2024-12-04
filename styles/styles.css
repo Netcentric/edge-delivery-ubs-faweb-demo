@@ -195,7 +195,7 @@ h2 {
       height: 4px;
       background-color: var(--col-brand40);
 
-      @media (min-width: 768px) {
+      @media (width >= 768px) {
         --section-title-underline-width: 80px;
       }
     }
