@@ -4,18 +4,60 @@ footer {
   line-height: var(--txt206-line-height);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
+.footer {
+  --footer-text-color: var(--col-neutral80);
 
-footer .footer p {
-  margin: 0;
-}
+  color: var(--footer-text-color);
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  > div {
+    margin: auto;
+    max-width: var(--content-max-width);
+    padding: 40px 24px 24px;
+  
+    @media (width >= 900px) {
+      padding: 40px 32px 24px;
+    }
   }
+
+  a {
+    text-decoration: underline;
+    color: var(--footer-text-color);
+
+    &:hover {
+      color: var(--col-neutral90);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    list-style: none;
+    margin: 0 0 25px;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  li:not(:last-child) {
+    position: relative;
+    
+    &::after {
+      position: absolute;
+      content: '';
+      width: 1px;
+      background-color: var(--footer-text-color);
+      height: 15px;
+      right: -11px;
+      top: 2px;
+    }
+  }
+
+  
 }
