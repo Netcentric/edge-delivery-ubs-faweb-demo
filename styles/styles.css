@@ -106,13 +106,7 @@
   --col-neutral90: #1C1C1C;
 
   /* Spacing */
-  --grid-max-width: 1290px;
-  --grid-container-width-xs: 20px;
-  --grid-container-width-sm: 42px;
-  --grid-container-width-xl: 75px;
-  --spacing-component-main-xs: 20px;
-  --spacing-component-main-sm: 32px;
-  --spacing-component-main-xl: 40px;
+  --content-max-width: 1200px;
 
   /* Shadows */
   --box-shadow: 0 1px 2px 0 rgba(var(--col-neutral50), 0.34), 0 0 13px 0 var(var(--col-neutral10));
@@ -316,7 +310,7 @@ main {
     }
 
     & > div {
-      max-width: 1200px;
+      max-width: var(--content-max-width);
       margin: auto;
       padding: 0 24px;
     }
