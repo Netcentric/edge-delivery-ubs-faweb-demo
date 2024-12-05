@@ -9,6 +9,14 @@
     flex-direction: row;
   }
 
+  .text-image--h-center & {
+    text-align: center;
+  }
+
+  .text-image--v-center & {
+    align-items: center;
+  }
+
   > div:not(.text-image__image-container) {
     order: 1;
     flex-grow: 1;
@@ -27,11 +35,11 @@
     order: initial;
     width: var(--image-width);
 
-    .bigimage & {
+    .text-image--bigimage & {
       --image-width: 70%;
     }
 
-    .smallimage & {
+    .text-image--smallimage & {
       --image-width: 30%;
     }
   }
