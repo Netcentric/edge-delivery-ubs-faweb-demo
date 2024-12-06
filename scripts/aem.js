@@ -403,7 +403,7 @@ function decorateButtons(element) {
           && twoup.childNodes.length === 1
           && twoup.tagName === 'P'
         ) {
-          a.className = 'button primary';
+          a.className = 'button button--secondary';
           twoup.classList.add('button-container');
         }
         if (
@@ -412,7 +412,7 @@ function decorateButtons(element) {
           && twoup.childNodes.length === 1
           && twoup.tagName === 'P'
         ) {
-          a.className = 'button secondary';
+          a.className = 'button button--tertiary';
           twoup.classList.add('button-container');
         }
       }
@@ -426,16 +426,23 @@ function decorateButtons(element) {
  * @param {string} [prefix] prefix to be added to icon src
  * @param {string} [alt] alt text to be added to icon
  */
-function decorateIcon(span, prefix = '', alt = '') {
+async function decorateIcon(span, prefix = '', alt = '') {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     .substring(5);
-  const img = document.createElement('img');
-  img.dataset.iconName = iconName;
-  img.src = `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`;
-  img.alt = alt;
-  img.loading = 'lazy';
-  span.append(img);
+
+  const resp = await fetch(`${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`);
+  if (resp.ok) {
+    const iconHTML = await resp.text();
+    if (iconHTML.match(/<style/i)) {
+      const img = document.createElement('img');
+      img.alt = alt;
+      img.src = `data:image/svg+xml,${encodeURIComponent(iconHTML)}`;
+      span.appendChild(img);
+    } else {
+      span.innerHTML = iconHTML;
+    }
+  }
 }
 
 /**
