@@ -173,8 +173,6 @@ h1 {
 }
 
 h2 {
-  --section-title-underline-width: 60px;
-
   font-size: var(--hl18-font-size);
   line-height: var(--hl18-line-height);
 
@@ -183,21 +181,24 @@ h2 {
   }
 
   &:has(> u) {
-    position: relative;
-    padding-bottom: 16px;
+    --section-title-underline-width: 60px;
+    --section-title-underline-gap: 12px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-title-underline-gap);
 
-    &::before {
+    @media (min-width: 768px) {
+      --section-title-underline-width: 80px;
+      --section-title-underline-gap: 16px;
+    }
+
+    &::after {
       content: '';
-      position: absolute;
-      inset: 100% 0 0;
       display: block;
       width: var(--section-title-underline-width);
       height: 4px;
       background-color: var(--col-brand40);
-
-      @media (width >= 768px) {
-        --section-title-underline-width: 80px;
-      }
     }
   }
 }
