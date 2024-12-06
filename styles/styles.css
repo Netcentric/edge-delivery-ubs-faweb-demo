@@ -175,6 +175,32 @@ h1 {
 h2 {
   font-size: var(--hl18-font-size);
   line-height: var(--hl18-line-height);
+
+  > u {
+    text-decoration: none;
+  }
+
+  &:has(> u) {
+    --section-title-underline-width: 60px;
+    --section-title-underline-gap: 12px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-title-underline-gap);
+
+    @media (min-width: 768px) {
+      --section-title-underline-width: 80px;
+      --section-title-underline-gap: 16px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: var(--section-title-underline-width);
+      height: 4px;
+      background-color: var(--col-brand40);
+    }
+  }
 }
 
 h3 {
