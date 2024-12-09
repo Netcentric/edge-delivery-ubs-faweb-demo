@@ -131,6 +131,10 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+  const brandLogo = navBrand.getElementsByTagName('p')[0];
+  const brandText = navBrand.getElementsByTagName('p')[1];
+  brandLogo.classList.add('nav-brand__logo');
+  brandText.classList.add('nav-brand__title');
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

@@ -38,6 +38,8 @@
   --txt150-font-size: 14px;
   --txt150-line-height: 114%;
   --txt150-font-weight: 700;
+  --txt151-font-size: 13px;
+  --txt151-line-height: 142%;
   --txt201-font-size: 16px;
   --txt201-line-height: 160%;
   --txt204-font-size: 14px;
@@ -70,7 +72,7 @@
   }
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: auto;
 
   /* DN Theme variables */
 
