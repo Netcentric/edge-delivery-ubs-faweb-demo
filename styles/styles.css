@@ -12,14 +12,10 @@
 
 :root {
   /* Breakpoints */
-  --b-print: 'only print';
-
+  
   /* 
-  xs: 400px;
-  sm: 768px;
-  md: 1024px;
-  lg: 1280px;
-  xl: 1440px;
+  sm: 768px
+  lg: 1280px
   */
   
   /* fonts */
@@ -41,7 +37,7 @@
   --hl22-line-height: 160%;
   --txt150-font-size: 14px;
   --txt150-line-height: 114%;
-  --txt150-font-weight: bold;
+  --txt150-font-weight: 700;
   --txt151-font-size: 13px;
   --txt151-line-height: 142%;
   --txt201-font-size: 16px;
@@ -61,25 +57,18 @@
     --hl18-font-size: 40px;
     --hl21-font-size: 20px;
   }
-
-  @media (min-width: 1024px) {
-    --hl19-font-size: 32px;
-    --txt201-font-size: 14px;
-  }
-
+  
   @media (min-width: 1280px) {
+    --hl19-font-size: 32px;
     --hl20-font-size: 24px;
     --hl20-line-height: 150%;
     --hl22-font-size: 18px;
     --hl22-line-height: 161%;
     --txt150-font-size: 16px;
     --txt150-line-height: 112%;
+    --txt201-font-size: 17px;
     --txt204-font-size: 16px;
     --txt204-line-height: 150%;
-  }
-
-  @media (min-width: 1440px) {
-    --txt201-font-size: 17px;
   }
 
   /* nav height */
@@ -108,13 +97,16 @@
   --col-neutral90: #1C1C1C;
 
   /* Spacing */
-  --grid-max-width: 1290px;
-  --grid-container-width-xs: 20px;
-  --grid-container-width-sm: 42px;
-  --grid-container-width-xl: 75px;
-  --spacing-component-main-xs: 20px;
-  --spacing-component-main-sm: 32px;
-  --spacing-component-main-xl: 40px;
+  --content-max-width: 1290px;
+  --content-padding-inline: 20px;
+  
+  @media (min-width: 768px) {
+    --content-padding-inline: 42px;
+  }
+  
+  @media (min-width: 1280px) {
+    --content-padding-inline: 75px;
+  }
 
   /* Shadows */
   --box-shadow: 0 1px 2px 0 rgba(var(--col-neutral50), 0.34), 0 0 13px 0 var(var(--col-neutral10));
@@ -177,6 +169,32 @@ h1 {
 h2 {
   font-size: var(--hl18-font-size);
   line-height: var(--hl18-line-height);
+
+  > u {
+    text-decoration: none;
+  }
+
+  &:has(> u) {
+    --section-title-underline-width: 60px;
+    --section-title-underline-gap: 12px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-title-underline-gap);
+
+    @media (min-width: 768px) {
+      --section-title-underline-width: 80px;
+      --section-title-underline-gap: 16px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: var(--section-title-underline-width);
+      height: 4px;
+      background-color: var(--col-brand40);
+    }
+  }
 }
 
 h3 {
@@ -246,66 +264,129 @@ a:hover {
   text-decoration: underline;
 }
 
+.icon {
+  display: inline-block;
+}
+
+.icon svg {
+  fill: currentcolor;
+}
+
 /* buttons */
 a.button:any-link,
 button {
+  --button-bg-color: var(--col-brand30);
+  --button-border-color: var(--col-brand30);
+  --button-border-width: 1px;
+  --button-text-color: var(--col-white);
+  --button-icon-color: var(--button-text-color);
+  --button-vertical-padding: 12px;
+  --button-horitzontal-padding: 16px;
+
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   max-width: 100%;
   margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
+  font-size: var(--txt150-font-size);
+  line-height: var(--txt150-line-height);
+  font-weight: var(--txt150-font-weight);
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  color: var(--button-text-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .icon {
+    color: var(--button-icon-color);
+  }
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  --button-bg-color: var(--col-brand50);
+  --button-border-color: var(--col-brand50);
+
   cursor: pointer;
+}
+
+a.button:any-link:not(.button--tertiary),
+button:not(.button--tertiary) {
+  border-radius: 2px;
+  border: var(--button-border-width) solid var(--button-border-color);
+  padding: var(--button-vertical-padding) var(--button-horitzontal-padding);
+  background-color: var(--button-bg-color);
+  min-height: 48px;
 }
 
 button:disabled,
 button:disabled:hover {
-  background-color: var(--light-neutral-color);
+  --button-bg-color: var(--col-neutral30);
+  --button-border-color: var(--col-neutral30);
+  --button-text-color: var(--col-white);
+
   cursor: unset;
 }
 
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
+a.button.button--secondary,
+button.button--secondary {
+  --button-bg-color: var(--col-white);
+  --button-border-color: var(--col-neutral90);
+  --button-text-color: var(--col-neutral90);
+  --button-icon-color: var(--col-brand40);
+
+  &:hover,
+  &:focus {
+    --button-border-width: 2px;
+    --button-vertical-padding: 11px;
+    --button-horitzontal-padding: 15px;
+  }
+}
+
+button.button--secondary:disabled,
+button.button--secondary:disabled:hover {
+  --button-border-color: var(--col-neutral30);
+  --button-text-color: var(--col-neutral30);
+  --button-icon-color: var(--col-neutral30);
+}
+
+a.button.button--tertiary,
+button.button--tertiary {
+  --button-bg-color: var(--col-white);
+  --button-border-color: var(--col-neutral90);
+  --button-text-color: var(--col-neutral90);
+  --button-icon-color: var(--col-brand40);
+
+  font-style: normal;
+  padding-block-end: 3px;
+
+  &:hover,
+  &:focus {
+    --button-vertical-padding: 11px;
+    --button-horitzontal-padding: 15px;
+
+    border-width: 2px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+}
+
+button.button--tertiary:disabled,
+button.button--tertiary:disabled:hover {
+  --button-text-color: var(--col-neutral30);
+  --button-icon-color: var(--col-neutral30);
 }
 
 main img {
   max-width: 100%;
   width: auto;
   height: auto;
-}
-
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-
-.icon img {
-  height: 100%;
-  width: 100%;
 }
 
 main {
@@ -318,9 +399,9 @@ main {
     }
 
     & > div {
-      max-width: 1200px;
+      max-width: var(--content-max-width);
       margin: auto;
-      padding: 0 24px;
+      padding-inline: var(--content-padding-inline);
     }
 
     /* section metadata */
@@ -329,16 +410,6 @@ main {
       background-color: var(--light-neutral-color);
       margin: 0;
       padding: 40px 0;
-    }
-  }
-}
-
-@media (min-width: 900px) {
-  main {
-    & > .section {
-      & > div {
-        padding: 0 32px;
-      }
     }
   }
 }

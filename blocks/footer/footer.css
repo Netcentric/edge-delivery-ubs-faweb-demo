@@ -6,16 +6,11 @@ footer {
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width);
+  padding-block: 40px;
+  padding-inline: var(--content-padding-inline);
 }
 
 footer .footer p {
   margin: 0;
-}
-
-@media (min-width: 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
 }
