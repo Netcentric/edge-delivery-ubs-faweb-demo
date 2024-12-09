@@ -257,6 +257,7 @@ a.button:any-link,
 button {
   --button-bg-color: var(--col-brand30);
   --button-border-color: var(--col-brand30);
+  --button-border-width: 1px;
   --button-text-color: var(--col-white);
   --button-icon-color: var(--button-text-color);
   --button-vertical-padding: 12px;
@@ -298,7 +299,7 @@ button:focus {
 a.button:any-link:not(.button--tertiary),
 button:not(.button--tertiary) {
   border-radius: 2px;
-  border: 1px solid var(--button-border-color);
+  border: var(--button-border-width) solid var(--button-border-color);
   padding: var(--button-vertical-padding) var(--button-horitzontal-padding);
   background-color: var(--button-bg-color);
   min-height: 48px;
@@ -322,7 +323,7 @@ button.button--secondary {
 
   &:hover,
   &:focus {
-    border-width: 2px;
+    --button-border-width: 2px;
 
     --button-vertical-padding: 11px;
     --button-horitzontal-padding: 15px;
