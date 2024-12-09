@@ -324,7 +324,6 @@ button.button--secondary {
   &:hover,
   &:focus {
     --button-border-width: 2px;
-
     --button-vertical-padding: 11px;
     --button-horitzontal-padding: 15px;
   }
