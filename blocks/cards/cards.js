@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { createElement, variantsClassesToBEM } from '../../scripts/common.js';
 
-const variantClasses = ['2-column', '3-column'];
+const variantClasses = ['2-columns', '3-columns'];
 
 export default function decorate(block) {
   const blockName = 'cards';
