@@ -12,11 +12,10 @@
 
 :root {
   /* Breakpoints */
-  --b-print: 'only print';
-
   /* 
-  sm: 768px;
-  lg: 1280px;
+  sm: < 768px
+  md: >= 768px
+  lg: >= 1280;
   */
   
   /* fonts */
