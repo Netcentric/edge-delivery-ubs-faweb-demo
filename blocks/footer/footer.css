@@ -12,11 +12,8 @@ footer {
   > div {
     margin: auto;
     max-width: var(--content-max-width);
-    padding: 40px 24px 24px;
-  
-    @media (min-width: 768px) {
-      padding: 40px 32px 24px;
-    }
+    padding-block: 40px;
+    padding-inline: var(--content-padding-inline);
   }
 
   a {
@@ -50,13 +47,13 @@ footer {
     position: relative;
     
     &::after {
-      position: absolute;
-      content: '';
-      width: 1px;
       background-color: var(--footer-text-color);
+      content: '';
       height: 15px;
+      position: absolute;
       right: -11px;
       top: 2px;
+      width: 1px;
     }
   }
 }
