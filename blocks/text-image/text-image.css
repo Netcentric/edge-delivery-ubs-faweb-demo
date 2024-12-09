@@ -21,6 +21,14 @@
     order: 1;
     flex-grow: 1;
 
+    *:first-child {
+      margin-top: 0;
+    }
+  
+    *:last-child {
+      margin-bottom: 0;
+    }
+
     @media (min-width: 768px) {
       order: initial;
       width: calc(100% - var(--image-width));
