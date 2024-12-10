@@ -140,6 +140,7 @@ body.appear {
 
 header {
   height: var(--nav-height);
+  min-height: 84px;
 }
 
 header .header,
@@ -389,8 +390,11 @@ button.button--tertiary:disabled:hover {
 
 main img {
   max-width: 100%;
-  width: auto;
-  height: auto;
+  
+  /* width: auto; */
+  /* height: auto; */
+
+  height: 100%;
 }
 
 main {
