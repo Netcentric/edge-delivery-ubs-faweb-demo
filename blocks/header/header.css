@@ -15,8 +15,7 @@ header {
   }
 }
 
-nav {
-  box-sizing: border-box;
+.nav {
   display: grid;
   grid-template:
     'hamburger brand tools' var(--nav-height)
@@ -28,6 +27,12 @@ nav {
   height: var(--nav-height);
   padding-inline: var(--content-padding-inline);
   font-family: var(--body-font-family);
+
+  @media (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 32px;
+  }
 
   &[aria-expanded='true'] {
     grid-template:
@@ -41,12 +46,6 @@ nav {
       min-height: 0;
       overflow: visible;
     }
-  }
-
-  @media (min-width: 1280px) {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
   }
 
   p {
