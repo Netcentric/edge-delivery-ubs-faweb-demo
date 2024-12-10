@@ -2,12 +2,12 @@
 header {
   --header-border-bottom-size: 2px;
 
+  min-height: 84px;
   border-bottom: var(--header-border-bottom-size) solid var(--col-neutral20);
 }
 
 .nav-wrapper {
   position: relative;
-  min-height: 84px;
   background-color: var(--background-color);
 }
 
