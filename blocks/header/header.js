@@ -115,6 +115,10 @@ function setActiveLink(links) {
 
   links.forEach((link) => {
     const navUrlObject = new URL(link.href);
+
+    // exclude external links
+    if (navUrlObject.origin !== window.location.origin) return;
+
     const currentPathWithoutTrailingSlash = removeTrailingSlash(window.location.pathname);
     const linkPathWithoutTrailingSlash = removeTrailingSlash(navUrlObject.pathname);
 

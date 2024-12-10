@@ -250,25 +250,29 @@ header {
     > li {
       font-size: var(--txt159-font-size);
       line-height: var(--txt159-line-height);
-      font-weight: 400;
 
       a:any-link {
+        --nav-section-link-active-color: transparent;
+
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
         text-decoration: none;
+
+        &::after {
+          content: '';
+          display: block;
+          height: 2px;
+          margin-block-end: -2px;
+          background-color: var(--nav-section-link-active-color);
+        }
 
         &.active,
         &:hover,
         &:focus-visible {
-          position: relative;
-          display: inline-flex;
-          flex-direction: column;
-          gap: 4px;
-
           &::after {
-            content: '';
-            display: block;
-            height: 2px;
-            margin-block-end: -2px;
-            background-color: var(--col-brand30);
+            --nav-section-link-active-color: var(--col-brand30);
           }
         }
       }
