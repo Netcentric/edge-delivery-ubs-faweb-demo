@@ -288,8 +288,8 @@ button {
   --button-border-width: 1px;
   --button-text-color: var(--col-white);
   --button-icon-color: var(--button-text-color);
-  --button-vertical-padding: 12px;
-  --button-horitzontal-padding: 16px;
+  --button-horizontal-padding: 16px;
+  --button-height: 48px;
 
   box-sizing: border-box;
   display: inline-flex;
@@ -328,9 +328,9 @@ a.button:any-link:not(.button--tertiary),
 button:not(.button--tertiary) {
   border-radius: 2px;
   border: var(--button-border-width) solid var(--button-border-color);
-  padding: var(--button-vertical-padding) var(--button-horitzontal-padding);
+  padding-inline: var(--button-horizontal-padding);
   background-color: var(--button-bg-color);
-  min-height: 48px;
+  height: var(--button-height);
 }
 
 button:disabled,
@@ -352,8 +352,7 @@ button.button--secondary {
   &:hover,
   &:focus {
     --button-border-width: 2px;
-    --button-vertical-padding: 11px;
-    --button-horitzontal-padding: 15px;
+    --button-horizontal-padding: 15px;
   }
 }
 
@@ -376,8 +375,7 @@ button.button--tertiary {
 
   &:hover,
   &:focus {
-    --button-vertical-padding: 11px;
-    --button-horitzontal-padding: 15px;
+    --button-horizontal-padding: 15px;
 
     border-width: 2px;
     text-decoration: underline;

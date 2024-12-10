@@ -175,6 +175,7 @@ header {
 
 /* sections */
 .nav-sections {
+  box-sizing: border-box;
   grid-area: sections;
   flex: 1 1 auto;
   display: none;
@@ -188,7 +189,7 @@ header {
 
   nav[aria-expanded='true'] & {
     --nav-sections-margin-inline: calc(var(--content-padding-inline) * -1);
-    --nav-sections-padding: var(--content-padding-inline);
+    --nav-sections-padding: 20px var(--content-padding-inline);
     --nav-sections-inset: calc(100% + var(--header-border-bottom-size)) 0 auto auto;
     --nav-sections-border-top: var(--header-border-bottom-size) solid var(--col-neutral20);
 
@@ -205,6 +206,7 @@ header {
     @media (min-width: 768px) {
       --nav-sections-margin-inline: 0;
       --nav-sections-border-top: 0;
+      --nav-sections-padding: 20px 40px;
       
       align-self: unset;
       position: absolute;
@@ -397,6 +399,8 @@ header {
     margin: 0;
 
     @media (max-width: 768px) {
+      --button-height: auto;
+
       min-height: auto;
       padding: 0;
       border: 0;
@@ -408,12 +412,22 @@ header {
     }
 
     @media (min-width: 768px) {
-      padding-block: 8px;
+      --button-horizontal-padding: 12px;
+
       font-size: var(--txt171-font-size);
       line-height: var(--txt171-line-height);
 
       &:not(.button--tertiary) {
-        min-height: 32px;
+        --button-height: 32px;
+      }
+    }
+
+    &.button--secondary {
+      &:hover,
+      &:focus {
+        @media (min-width: 768px) {
+          --button-horizontal-padding: 11px;
+        }
       }
     }
   }
