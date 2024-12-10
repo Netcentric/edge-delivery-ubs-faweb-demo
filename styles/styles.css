@@ -76,7 +76,7 @@
   }
 
   /* nav height */
-  --nav-height: auto;
+  --nav-height: 80px;
 
   /* DN Theme variables */
 
@@ -139,8 +139,11 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
-  min-height: 84px;
+  min-height: var(--nav-height);
+
+  @media (min-width: 1280px) {
+    --nav-height: 105px;
+  }
 }
 
 header .header,
@@ -390,11 +393,7 @@ button.button--tertiary:disabled:hover {
 
 main img {
   max-width: 100%;
-  
-  /* width: auto; */
-  /* height: auto; */
-
-  height: 100%;
+  height: auto;
 }
 
 main {
