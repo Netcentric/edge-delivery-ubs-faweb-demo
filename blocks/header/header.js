@@ -117,6 +117,7 @@ export default async function decorate(block) {
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
+  nav.classList.add('nav');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
@@ -131,6 +132,10 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+  const brandLogo = navBrand.getElementsByTagName('p')[0];
+  const brandText = navBrand.getElementsByTagName('p')[1];
+  brandLogo.classList.add('nav-brand__logo');
+  brandText.classList.add('nav-brand__title');
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
