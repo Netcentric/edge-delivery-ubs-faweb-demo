@@ -38,8 +38,12 @@
   --txt150-font-size: 14px;
   --txt150-line-height: 114%;
   --txt150-font-weight: 700;
-  --txt151-font-size: 13px;
-  --txt151-line-height: 142%;
+  --txt155-font-size: 13px;
+  --txt155-line-height: 123%;
+  --txt159-font-size: 16px;
+  --txt159-line-height: 175%;
+  --txt171-font-size: 12px;
+  --txt171-line-height: 132%;
   --txt201-font-size: 16px;
   --txt201-line-height: 160%;
   --txt204-font-size: 14px;
@@ -109,7 +113,7 @@
   }
 
   /* Shadows */
-  --box-shadow: 0 1px 2px 0 rgba(var(--col-neutral50), 0.34), 0 0 13px 0 var(var(--col-neutral10));
+  --box-shadow: 0 1px 2px 0 rgb(145 145 145 / 34%), 0 0 13px 0 var(--col-neutral10);
 
   /* colors */
   --background-color: var(--col-white);
