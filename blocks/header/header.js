@@ -3,6 +3,8 @@ import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates desktop width
 const isDesktop = window.matchMedia('(min-width: 1280px)');
+// media query match that indicates tablet width
+const isTablet = window.matchMedia('(min-width: 768px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -71,7 +73,7 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  document.body.style.overflowY = (expanded || isTablet.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -101,6 +103,29 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     window.removeEventListener('keydown', closeOnEscape);
     nav.removeEventListener('focusout', closeOnFocusLost);
   }
+}
+
+/**
+ * Add a dedicated class to the active nav link
+ *
+ * @param   {array}  links  - nav links
+ */
+function setActiveLink(links) {
+  const removeTrailingSlash = (url) => url.replace(/\/$/, '');
+
+  links.forEach((link) => {
+    const navUrlObject = new URL(link.href);
+
+    // exclude external links
+    if (navUrlObject.origin !== window.location.origin) return;
+
+    const currentPathWithoutTrailingSlash = removeTrailingSlash(window.location.pathname);
+    const linkPathWithoutTrailingSlash = removeTrailingSlash(navUrlObject.pathname);
+
+    if (currentPathWithoutTrailingSlash === linkPathWithoutTrailingSlash) {
+      link.classList.add('active');
+    }
+  });
 }
 
 /**
@@ -150,6 +175,9 @@ export default async function decorate(block) {
       });
     });
   }
+
+  const navLinks = navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > a');
+  setActiveLink(navLinks);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

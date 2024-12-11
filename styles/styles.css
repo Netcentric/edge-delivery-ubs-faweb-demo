@@ -38,8 +38,12 @@
   --txt150-font-size: 14px;
   --txt150-line-height: 114%;
   --txt150-font-weight: 700;
-  --txt151-font-size: 13px;
-  --txt151-line-height: 142%;
+  --txt155-font-size: 13px;
+  --txt155-line-height: 123%;
+  --txt159-font-size: 16px;
+  --txt159-line-height: 175%;
+  --txt171-font-size: 12px;
+  --txt171-line-height: 132%;
   --txt201-font-size: 16px;
   --txt201-line-height: 160%;
   --txt204-font-size: 14px;
@@ -72,7 +76,7 @@
   }
 
   /* nav height */
-  --nav-height: auto;
+  --nav-height: 80px;
 
   /* DN Theme variables */
 
@@ -109,7 +113,7 @@
   }
 
   /* Shadows */
-  --box-shadow: 0 1px 2px 0 rgba(var(--col-neutral50), 0.34), 0 0 13px 0 var(var(--col-neutral10));
+  --box-shadow: 0 1px 2px 0 rgb(145 145 145 / 34%), 0 0 13px 0 var(--col-neutral10);
 
   /* colors */
   --background-color: var(--col-white);
@@ -135,7 +139,11 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  min-height: var(--nav-height);
+
+  @media (min-width: 1280px) {
+    --nav-height: 105px;
+  }
 }
 
 header .header,
@@ -280,8 +288,8 @@ button {
   --button-border-width: 1px;
   --button-text-color: var(--col-white);
   --button-icon-color: var(--button-text-color);
-  --button-vertical-padding: 12px;
-  --button-horitzontal-padding: 16px;
+  --button-horizontal-padding: 16px;
+  --button-height: 48px;
 
   box-sizing: border-box;
   display: inline-flex;
@@ -320,9 +328,9 @@ a.button:any-link:not(.button--tertiary),
 button:not(.button--tertiary) {
   border-radius: 2px;
   border: var(--button-border-width) solid var(--button-border-color);
-  padding: var(--button-vertical-padding) var(--button-horitzontal-padding);
+  padding-inline: var(--button-horizontal-padding);
   background-color: var(--button-bg-color);
-  min-height: 48px;
+  height: var(--button-height);
 }
 
 button:disabled,
@@ -344,8 +352,7 @@ button.button--secondary {
   &:hover,
   &:focus {
     --button-border-width: 2px;
-    --button-vertical-padding: 11px;
-    --button-horitzontal-padding: 15px;
+    --button-horizontal-padding: 15px;
   }
 }
 
@@ -368,8 +375,7 @@ button.button--tertiary {
 
   &:hover,
   &:focus {
-    --button-vertical-padding: 11px;
-    --button-horitzontal-padding: 15px;
+    --button-horizontal-padding: 15px;
 
     border-width: 2px;
     text-decoration: underline;
@@ -385,7 +391,6 @@ button.button--tertiary:disabled:hover {
 
 main img {
   max-width: 100%;
-  width: auto;
   height: auto;
 }
 
